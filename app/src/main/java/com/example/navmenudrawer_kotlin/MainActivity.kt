@@ -8,9 +8,18 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.navigation.NavigationView
+import fragments.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    lateinit var myProfileFragment: MyProfileFragment
+    lateinit var tableOfContentsFragment: TableOfContentsFragment
+    lateinit var contentDetailsFragment: ContentDetailsFragment
+    lateinit var updateProfileFragment: UpdateProfileFragment
+    lateinit var logOutFragment: LogOutFragment
+
 
 
     lateinit var toolbar: Toolbar
@@ -34,7 +43,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         navView.setNavigationItemSelectedListener(this)
+
+
     }
+
+
 
 
     // to detect user's interaction with the listed options in Navigation Drawer.
@@ -45,23 +58,65 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_myprofile -> {
-                Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+                myProfileFragment = MyProfileFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.linearlayout_content,myProfileFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
             R.id.nav_table -> {
-                Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
+               tableOfContentsFragment = TableOfContentsFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.linearlayout_content,tableOfContentsFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
-            R.id.nav_details-> {
-                Toast.makeText(this, "Friends clicked", Toast.LENGTH_SHORT).show()
+            R.id.nav_details -> {
+                contentDetailsFragment = ContentDetailsFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.linearlayout_content,contentDetailsFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
-            R.id.nav_update -> {
-                Toast.makeText(this, "Update clicked", Toast.LENGTH_SHORT).show()
+            R.id.nav_update-> {
+              updateProfileFragment = UpdateProfileFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.linearlayout_content,updateProfileFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
             }
-            R.id.nav_logout -> {
-                Toast.makeText(this, "Sign out clicked", Toast.LENGTH_SHORT).show()
+
+            R.id.nav_logout->{
+                logOutFragment = LogOutFragment()
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.linearlayout_content,logOutFragment)
+                    .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                    .commit()
+                Toast.makeText(this,"Logout Clicked!",Toast.LENGTH_LONG).show()
             }
         }
         //closed the drawer using drawerLayout.closeDrawer(GravityCompat.START)
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
+
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START)
+        }
+        else{
+            super.onBackPressed()
+
+        }
+
+
+    }
+
+
+
 }

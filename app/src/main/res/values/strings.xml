@@ -10,5 +10,12 @@
     <string name="open_msg" />
     <string name="closing_msg" />
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="my_profile_fragment">My Profile Fragment</string>
+    <string name="content_details_fragment">Content Details Fragment</string>
+    <string name="table_of_contents_fragments">Table of Contents Fragments</string>
+    <string name="update_profile_fragment">Update Profile Fragment</string>
+
 
 </resources>
