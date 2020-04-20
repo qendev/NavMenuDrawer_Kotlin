@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+        <item
+            android:id="@+id/nav_myprofile"
+            android:icon="@drawable/ic_myprofile"
+            android:title="@string/my_profile"/>
+        <item
+            android:id="@+id/nav_table"
+            android:icon="@drawable/ic_table"
+            android:title="@string/table_of_contents"/>
+        <item
+            android:id="@+id/nav_details"
+            android:icon="@drawable/ic_details"
+            android:title="@string/content_details"/>
+    </group>
+
+
+    <item android:title="@string/account_settings">
+        <menu>
+            <item
+                android:id="@+id/nav_update"
+                android:icon="@drawable/ic_update"
+                android:title="@string/update_profile"/>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_logout"
+                android:title="@string/log_out"/>
+        </menu>
+    </item>
+</menu>
