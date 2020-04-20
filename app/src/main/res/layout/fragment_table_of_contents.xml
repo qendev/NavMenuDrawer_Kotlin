@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.TableOfContentsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/table_of_contents_fragments"
+        android:textColor="@color/text_color"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:background="#D8D08C"/>
+
+</RelativeLayout>
