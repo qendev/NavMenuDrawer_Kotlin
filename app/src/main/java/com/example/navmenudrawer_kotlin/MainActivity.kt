@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.linearlayout_content,logOutFragment)
                     .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                     .commit()
-                Toast.makeText(this,"Logout Clicked!",Toast.LENGTH_LONG).show()
+                Toast.makeText(this,"Logout Clicked!",Toast.LENGTH_SHORT).show()
             }
         }
         //closed the drawer using drawerLayout.closeDrawer(GravityCompat.START)
